@@ -4,3 +4,7 @@ self-review pass 1:
 - HELM-SEC-001: both charts render podSecurityContext (runAsNonRoot, uid 1000) and container securityContext (no privilege escalation, read-only root, drop ALL) from values.
 - HELM-RES-001: api.resources / ui.resources / resources values (default {}) rendered on each container.
 - HELM-DOC-001: every values.yaml key has a comment.
+
+lisa-selfreview:
+pass 2 (strict), request_changes:
+- [nit] CORE-STYLE-001 Makefile: appVersion image check used `grep -q`, so the dots in the version were regex wildcards; use `grep -qF` for an exact match.
