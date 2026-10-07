@@ -1,0 +1,7 @@
+lisa-design:
+- All shared refs (ci-helm, notify-failure + workflows-ref, release-checks, release-please, release-helm) pinned to the full SHA 084cc5d5ee6a40455f84b4f3108cfb254654ae28 (head of workflows#12), not @v1.
+- release-please-config.json copies every defaults.json key verbatim (drift check compares key-by-key) and adds include-component-in-tag: true + separate-pull-requests: false, so each chart is tagged <chart>-vX.Y.Z in one combined release PR; release-helm.yml picks the chart from that component.
+- release.yml passes no inputs: release-helm.yml defaults (charts-dir charts, registry oci://ghcr.io/compliance-framework/helm-charts) fit this repo.
+- No preview.yml caller: preview.yml has no helm kind; charts have no previews.
+- ci.yml pull_request types gain labeled/unlabeled so release-checks re-reads release:major-approved; notify needs [ci, release-checks].
+- charts/*/README.md added so the feat adoption commit touches both release-please packages (only changed paths release). Chart.yaml versions left at 0.1.0, matching the manifest seed.
