@@ -4,7 +4,7 @@ description: Mock of the ccf-app chart (mock-api + mock-ui) for CCF release auto
 type: application
 
 # Chart version. Bump on any change to the chart, including appVersion.
-version: 0.1.0
+version: 0.2.0
 
 # Version of mock-api deployed by default (api.image.tag falls back to it).
 # Starts at 0.0.0; ccf-bump sets real versions once the mocks release.
