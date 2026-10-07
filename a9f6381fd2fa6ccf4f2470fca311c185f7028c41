@@ -1,0 +1,5 @@
+lisa-design:
+- Shared workflows pinned to full SHA 87edd2b700d6dc6de8d49c1f44e525dd39e4db31 (head of workflows#7) for the trial, not @v1; notify passes workflows-ref with the same SHA because a reusable workflow cannot see its own ref.
+- Top-level permissions: {}; each calling job grants only what the README documents (ci: actions/contents/pull-requests read + security-events write for nested osv-scanner; notify: actions/contents read).
+- make-targets lists helm.test.app helm.test.agent explicitly (not the aggregate helm.test) so the shared make step reports each chart's result separately.
+- ct.yaml is left as-is (check-version-increment: false); the shared ct job also passes --check-version-increment=false.
