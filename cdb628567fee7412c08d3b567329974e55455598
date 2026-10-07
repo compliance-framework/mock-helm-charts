@@ -3,3 +3,6 @@ self-review pass 2: CORE-STYLE-001 default-tag checks use grep -qF (exact match 
 
 lisa-selfreview:
 pass 3 (strict): approve, no findings. helm lint charts/*, make helm.test.app, make helm.test.agent pass; negative checks (snapshot drift, appVersion removed, image tag != appVersion) all fail the targets as intended. ct not installed locally, ct lint not run.
+
+lisa-design:
+- ct.yaml: check-version-increment false (supersedes the earlier 'true'). release-please owns each chart's version and bumps it in its release PR; ccf-bump PRs change only appVersion and image tags, so ct lint must not require a chart version bump. Directed by reviewer gusfcarvalho on PR #1.
