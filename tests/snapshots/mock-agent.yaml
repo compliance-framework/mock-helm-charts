@@ -19,7 +19,19 @@ spec:
         app.kubernetes.io/name: mock-agent
         app.kubernetes.io/instance: ccf
     spec:
+      securityContext:
+        fsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
       containers:
         - name: agent
           image: "ghcr.io/compliance-framework/mock-agent:snapshot"
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          resources:
+            {}

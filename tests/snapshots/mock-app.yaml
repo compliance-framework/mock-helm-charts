@@ -19,16 +19,36 @@ spec:
         app.kubernetes.io/name: mock-app
         app.kubernetes.io/instance: ccf
     spec:
+      securityContext:
+        fsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
       containers:
         - name: api
           image: "ghcr.io/compliance-framework/mock-api:snapshot"
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
           ports:
             - name: http-api
               containerPort: 8080
+          resources:
+            {}
         - name: ui
           image: "ghcr.io/compliance-framework/mock-ui:snapshot"
           imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
           ports:
             - name: http-ui
               containerPort: 80
+          resources:
+            {}

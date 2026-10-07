@@ -21,6 +21,7 @@ helm.lint:
 .PHONY: helm.test.app
 helm.test.app:
 	$(HELM) lint charts/mock-app
+	test -n "$(call app_version,charts/mock-app)" # appVersion must be set
 	$(HELM) template $(RELEASE) charts/mock-app $(APP_SNAPSHOT_ARGS) | diff -u $(SNAPSHOT_DIR)/mock-app.yaml -
 	$(HELM) template $(RELEASE) charts/mock-app \
 		| grep -q 'image: "ghcr.io/compliance-framework/mock-api:$(call app_version,charts/mock-app)"'
@@ -36,6 +37,7 @@ helm.snapshot.app:
 .PHONY: helm.test.agent
 helm.test.agent:
 	$(HELM) lint charts/mock-agent
+	test -n "$(call app_version,charts/mock-agent)" # appVersion must be set
 	$(HELM) template $(RELEASE) charts/mock-agent $(AGENT_SNAPSHOT_ARGS) | diff -u $(SNAPSHOT_DIR)/mock-agent.yaml -
 	$(HELM) template $(RELEASE) charts/mock-agent \
 		| grep -q 'image: "ghcr.io/compliance-framework/mock-agent:$(call app_version,charts/mock-agent)"'
