@@ -1,0 +1,8 @@
+lisa-addressed:
+---
+Comment (ct.yaml:6):
+Set `check-version-increment: false`. release-please owns each chart's `version` (it bumps it in the release PR), and `ccf-bump` PRs change only `appVersion` and image tags. With `true`, every ccf-bump PR would fail `ct lint`. Add a comment saying release-please bumps the chart version. Your other open questions: (1) your reading is right, chart version 0.1.0 and the app versions 0.0.0; (3) one Deployment is fine; (4) no helm-unittest or schema needed in the mock.
+Replies:
+**lisa implementation guidance:** Classified: fix (reviewer overrides the earlier design choice of check-version-increment: true). In ct.yaml set `check-version-increment: false` and add a comment above it: release-please owns each chart's `version` (bumped in its release PR); ccf-bump PRs change only `appVersion` and image tags, so ct must not require a version bump. No other files change; the open questions (1, 3, 4) are answered with no further changes.
+
+<!-- lisa-guidance-posted -->
