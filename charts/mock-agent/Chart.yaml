@@ -1,0 +1,16 @@
+apiVersion: v2
+name: mock-agent
+description: Mock of the ccf-agent chart (mock-agent) for CCF release automation
+type: application
+
+# Chart version. Bump on any change to the chart, including appVersion.
+version: 0.1.0
+
+# Version of mock-agent deployed by default (image.tag falls back to it).
+# Starts at 0.0.0; ccf-bump sets real versions once the mocks release.
+appVersion: "0.0.0"
+
+home: https://github.com/compliance-framework
+sources:
+  - https://github.com/compliance-framework/mock-agent
+  - https://github.com/compliance-framework/mock-helm-charts

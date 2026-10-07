@@ -1,0 +1,7 @@
+image:
+  repository: ghcr.io/compliance-framework/mock-agent
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+replicaCount: 1

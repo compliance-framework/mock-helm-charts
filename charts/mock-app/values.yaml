@@ -1,0 +1,16 @@
+api:
+  image:
+    repository: ghcr.io/compliance-framework/mock-api
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: ""
+  containerPort: 8080
+
+ui:
+  image:
+    repository: ghcr.io/compliance-framework/mock-ui
+    pullPolicy: IfNotPresent
+    tag: "0.0.0"
+  containerPort: 80
+
+replicaCount: 1

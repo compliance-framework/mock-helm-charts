@@ -1,0 +1,34 @@
+---
+# Source: mock-app/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ccf-mock-app
+  labels:
+    app.kubernetes.io/name: mock-app
+    app.kubernetes.io/instance: ccf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mock-app
+      app.kubernetes.io/instance: ccf
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: mock-app
+        app.kubernetes.io/instance: ccf
+    spec:
+      containers:
+        - name: api
+          image: "ghcr.io/compliance-framework/mock-api:snapshot"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http-api
+              containerPort: 8080
+        - name: ui
+          image: "ghcr.io/compliance-framework/mock-ui:snapshot"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http-ui
+              containerPort: 80
