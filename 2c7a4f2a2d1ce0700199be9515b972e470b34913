@@ -5,3 +5,11 @@ lisa-design:
 - api.image.tag is "" and falls back to appVersion (like ccf-agent); ui.image.tag is explicit (like ccf-app) and `required` in the template.
 - mock-app's single Deployment template renders one Deployment with two containers (api, ui) to satisfy "one Deployment template per chart".
 - ct.yaml: target-branch main, chart-dirs charts, validate-maintainers false, check-version-increment true. No workflows in this PR (added by S1).
+
+lisa-selfreview:
+pass 1 (strict), request_changes:
+- [must-fix] CORE-TEST-002 Makefile: default-tag check passes vacuously when appVersion is empty
+- [must-fix] HELM-SEC-001 mock-app + mock-agent deployments: containers lack securityContext
+- [should-fix] HELM-RES-001 containers have no resources values
+- [should-fix] HELM-DOC-001 values.yaml keys (replicaCount, containerPort, pullPolicy) lack comments
+- considered, not raised: HELM-SCHEMA-001 (no values.schema.json exists in these new charts; spec doesn't ask for one), CORE-DUP-001 (image repos repeated as literal test expectations in Makefile, intentional)
