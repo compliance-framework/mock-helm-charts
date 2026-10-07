@@ -1,0 +1,26 @@
+# Replicas of the mock-agent Deployment.
+replicaCount: 1
+
+image:
+  repository: ghcr.io/compliance-framework/mock-agent
+  # Image pull policy for the agent container.
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+# Resource requests/limits for the agent container.
+resources: {}
+
+# Pod-level security context.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+# Security context applied to the agent container.
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL

@@ -1,0 +1,37 @@
+---
+# Source: mock-agent/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ccf-mock-agent
+  labels:
+    app.kubernetes.io/name: mock-agent
+    app.kubernetes.io/instance: ccf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mock-agent
+      app.kubernetes.io/instance: ccf
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: mock-agent
+        app.kubernetes.io/instance: ccf
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+        - name: agent
+          image: "ghcr.io/compliance-framework/mock-agent:snapshot"
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          resources:
+            {}

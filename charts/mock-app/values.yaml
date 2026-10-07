@@ -1,0 +1,40 @@
+# Replicas of the mock-app Deployment (runs the api and ui containers).
+replicaCount: 1
+
+api:
+  image:
+    repository: ghcr.io/compliance-framework/mock-api
+    # Image pull policy for the api container.
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: ""
+  # Port the api container listens on.
+  containerPort: 8080
+  # Resource requests/limits for the api container.
+  resources: {}
+
+ui:
+  image:
+    repository: ghcr.io/compliance-framework/mock-ui
+    # Image pull policy for the ui container.
+    pullPolicy: IfNotPresent
+    # mock-ui image tag (required). ccf-bump updates it on mock-ui releases.
+    tag: "0.0.0"
+  # Port the ui container listens on.
+  containerPort: 80
+  # Resource requests/limits for the ui container.
+  resources: {}
+
+# Pod-level security context.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+
+# Security context applied to the api and ui containers.
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
