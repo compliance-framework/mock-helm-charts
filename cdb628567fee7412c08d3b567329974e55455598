@@ -1,2 +1,5 @@
 lisa-addressed:
 self-review pass 2: CORE-STYLE-001 default-tag checks use grep -qF (exact match on the appVersion).
+
+lisa-selfreview:
+pass 3 (strict): approve, no findings. helm lint charts/*, make helm.test.app, make helm.test.agent pass; negative checks (snapshot drift, appVersion removed, image tag != appVersion) all fail the targets as intended. ct not installed locally, ct lint not run.
