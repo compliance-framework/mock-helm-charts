@@ -1,0 +1,6 @@
+lisa-addressed:
+self-review pass 1:
+- CORE-TEST-002: helm.test.app/agent now fail (`test -n`) when the chart's appVersion is empty, so the default-tag grep can't pass vacuously (verified: removing appVersion fails the target).
+- HELM-SEC-001: both charts render podSecurityContext (runAsNonRoot, uid 1000) and container securityContext (no privilege escalation, read-only root, drop ALL) from values.
+- HELM-RES-001: api.resources / ui.resources / resources values (default {}) rendered on each container.
+- HELM-DOC-001: every values.yaml key has a comment.
