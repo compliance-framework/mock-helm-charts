@@ -1,0 +1,7 @@
+lisa-design:
+- Tests use `helm lint` + a `helm template` snapshot diff (tests/snapshots/) instead of helm-unittest: no plugin install needed locally or in CI.
+- Snapshots render with pinned image tags (`snapshot`) and templates carry no version labels (no helm.sh/chart, no app.kubernetes.io/version), so a ccf-bump of version/appVersion/ui.image.tag never breaks `make helm.test.*`. The default tags are checked separately: api/agent image must equal the chart's appVersion, ui image must have a non-empty tag.
+- Chart `version: 0.1.0` per spec item 1; "start the versions at 0.0.0" is applied to appVersion and ui.image.tag (the versions ccf-bump manages).
+- api.image.tag is "" and falls back to appVersion (like ccf-agent); ui.image.tag is explicit (like ccf-app) and `required` in the template.
+- mock-app's single Deployment template renders one Deployment with two containers (api, ui) to satisfy "one Deployment template per chart".
+- ct.yaml: target-branch main, chart-dirs charts, validate-maintainers false, check-version-increment true. No workflows in this PR (added by S1).
