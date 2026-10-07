@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/compliance-framework/mock-helm-charts/compare/mock-agent-v0.2.0...mock-agent-v0.2.1) (2026-10-07)
+
+
+### Bug Fixes
+
+* **deps:** bump mock-agent to v0.1.0 ([#9](https://github.com/compliance-framework/mock-helm-charts/issues/9)) ([80e51af](https://github.com/compliance-framework/mock-helm-charts/commit/80e51afe520c9f75e48a3fb3fbc4d8c3763958b7))
+
 ## [0.2.0](https://github.com/compliance-framework/mock-helm-charts/compare/mock-agent-v0.1.0...mock-agent-v0.2.0) (2026-10-07)
 
 
