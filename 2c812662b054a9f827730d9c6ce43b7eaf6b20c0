@@ -1,0 +1,3 @@
+lisa-design:
+- Only the pull_request types list in .github/workflows/ci.yml gains `closed`; no pin bumps or other files (per W1-S3-MOCK-CLOSED).
+- Safe because ci-helm.yml and release-checks.yml (v1.3.0) skip every job on a closed PR, so the extra run only lets notify-failure flip the needs-human card and close the CI incident.
