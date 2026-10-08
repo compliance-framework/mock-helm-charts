@@ -12,7 +12,7 @@ jobs:
     # Multi-chart repo: release-please tags <chart>-vX.Y.Z and release-helm.yml picks the
     # chart from the tag's component (defaults: charts-dir charts, registry
     # oci://ghcr.io/compliance-framework/helm-charts).
-    uses: compliance-framework/workflows/.github/workflows/release-helm.yml@main
+    uses: compliance-framework/workflows/.github/workflows/release-helm.yml@5a81b1ac6081babf702713afb497d5a4f5c662bf # v1.0.0
     permissions:
       contents: read
       packages: write
