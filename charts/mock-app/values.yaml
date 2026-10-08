@@ -19,7 +19,7 @@ ui:
     # Image pull policy for the ui container.
     pullPolicy: IfNotPresent
     # mock-ui image tag (required). ccf-bump updates it on mock-ui releases.
-    tag: "0.1.1"
+    tag: "0.1.2"
   # Port the ui container listens on.
   containerPort: 80
   # Resource requests/limits for the ui container.

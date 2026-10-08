@@ -8,7 +8,7 @@ version: 0.2.2
 
 # Version of mock-api deployed by default (api.image.tag falls back to it).
 # Starts at 0.0.0; ccf-bump sets real versions once the mocks release.
-appVersion: "0.1.0"
+appVersion: "0.1.1"
 
 home: https://github.com/compliance-framework
 sources:
