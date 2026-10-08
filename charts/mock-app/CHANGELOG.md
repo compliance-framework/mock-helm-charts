@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/compliance-framework/mock-helm-charts/compare/mock-app-v0.2.1...mock-app-v0.2.2) (2026-10-08)
+
+
+### Bug Fixes
+
+* **deps:** bump mock-ui to v0.1.1 ([#12](https://github.com/compliance-framework/mock-helm-charts/issues/12)) ([58313a7](https://github.com/compliance-framework/mock-helm-charts/commit/58313a7c0f0b8713f5ae7173e857dad7aa556fe6))
+
 ## [0.2.1](https://github.com/compliance-framework/mock-helm-charts/compare/mock-app-v0.2.0...mock-app-v0.2.1) (2026-10-07)
 
 
